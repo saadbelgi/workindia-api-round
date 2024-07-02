@@ -61,10 +61,11 @@ router.post("/", async (req, res) => {
   try {
     const row = (
       await db.query(
-        "INSERT INTO short (category, title, publish_date, content, actual_ content_link, image, upvote, downvote) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO short (category, title, author, publish_date, content, actual_ content_link, image, upvote, downvote) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         [
           category,
           title,
+          author,
           publish_date_date,
           content,
           actual_content_link,
