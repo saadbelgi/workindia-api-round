@@ -56,7 +56,10 @@ router.get("/", async (req, res) => {
     if (author) {
       q += ` author LIKE '%${author}%')`;
     }
-    // console.log(q);
+    else {
+      q = q.slice(0, -6);
+    }
+    console.log(q);
     const [rows] = await db.query(q);
     if (rows.length === 0) {
       res.status(400).send({

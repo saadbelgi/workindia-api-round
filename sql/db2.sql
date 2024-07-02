@@ -12,9 +12,10 @@ CREATE TABLE short (
 	short_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     category VARCHAR(100) NOT NULL,
     title VARCHAR(100) NOT NULL,
+    author VARCHAR(100) NOT NULL,
     publish_date DATETIME NOT NULL,
     content TEXT NOT NULL,
-    content_link VARCHAR(512) NOT NULL,
+    actual_content_link VARCHAR(512) NOT NULL,
     image VARCHAR(512),
     upvote INTEGER DEFAULT 0,
     downvote INTEGER DEFAULT 0
@@ -28,9 +29,13 @@ INSERT INTO user(username, email, password) VALUES
 ("advait", "abe@def.ghi", "$2b$10$8Hc6EQOVs.6sQ.qa7jXhPOB4xap0TLnqBxtc2djNkFz4aNeNSBipC")
 ;
 
+
 SELECT * FROM user;
 
+SELECT * FROM short;
+SELECT * FROM short ORDER BY publish_date DESC, upvote DESC;
 
+UPDATE short SET publish_date="2024-07-01 19:07:09" WHERE short_id=248;
 
-
+DROP TABLE short;
 
